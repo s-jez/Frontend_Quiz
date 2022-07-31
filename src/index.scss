@@ -1,1 +1,10 @@
-@import "base/reset"
+@import "abstracts/_variables";
+
+@import "base/reset";
+@import "base/_typgoraphy";
+
+@import "components/_quiz";
+@import "components/_nav";
+@import "components/_footer";
+
+@import "pages/home";

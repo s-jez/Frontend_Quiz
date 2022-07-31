@@ -4,28 +4,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
     <title>Frontend Quiz App</title>
     <link rel="stylesheet" href="index.scss" />
   </head>
   <body>
-    <h1>Frontend Quizz</h1>
-    <div class="quiz">
-      <div class="quiz__answer">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
-        blanditiis impedit illum eum quis voluptate quia deserunt! Minus aperiam
-        dignissimos nemo et ullam quia, similique harum consequatur, ducimus
-        accusamus maiores.
-      </div>
-      <form class="quiz__form">
-        <label id="optA">Option A:</label>
-        <input type="checkbox" id="optA" /> <br />
-        <label id="optB">Option B:</label>
-        <input type="checkbox" id="optB" /> <br />
-        <label id="optC">Option C:</label>
-        <input type="checkbox" id="optC" /> <br />
-        <input type="submit" value="OK" />
-      </form>
-    </div>
+    <nav>
+      <span>Frontend Quiz App</span>
+    </nav>
+    <main>
+      <div class="quiz">
+        <div class="quiz__answer">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis
+          blanditiis impedit illum eum quis voluptate quia deserunt! Minus
+          aperiam dignissimos nemo et ullam quia, similique harum consequatur,
+          ducimus accusamus maiores.
+        </div>
+        <form class="quiz__form">
+            <input type="text" id="optA" class="quiz__input" readonly/>
+            <input type="text" id="optB" class="quiz__input" readonly/>
+            <input type="text" id="optC" class="quiz__input" readonly />
+        </form>
+    </main>
+    <footer>
+      <span>Frontend Quiz App, Copyright 2022 &copy;</span>
+    </footer>
     <script src="../index.js" type="module"></script>
   </body>
 </html>
