@@ -6,7 +6,7 @@
   height: 50vh;
   color: $white;
   box-shadow: 0 1rem 0.5rem rgba(0, 0, 0, 0.5);
-  &__answer {
+  &__question {
     background-color: $form-header-color;
     padding: 2rem;
     font-size: 1.1rem;
@@ -24,15 +24,47 @@
     margin: 1.5rem;
     border: 0;
     outline: 1px solid #333;
+    font-size: 1rem;
+    text-align: center;
     -webkit-appearance: none;
+    transition: .5 all;
     &:hover {
       background: rgba(0, 0, 0, 0.1);
       cursor: pointer;
     }
+    &:focus {
+      background: rgb(201, 201, 201, 0.8);
+    }
+  }
+  .quiz__button {
+    width: 15rem;
+    height: 2rem;
+    margin-top: 3rem;
+    border: 0;
+    background-color: rgba(190, 190, 190, 1);
+    outline: 1px solid #333;
+    font-size: 1rem;
+    text-align: center;
+    -webkit-appearance: none;
+    border-radius: 1.5rem;
+    transition: .5 all;
+    &:hover {
+      cursor: pointer;
+      background-color: rgba(150, 150, 150, 0.5);
+    }
+  }
+  ::placeholder {
+    color: #333;
+    opacity: 1;
   }
 }
 @media (max-width: 768px) {
   .quiz {
+    width: 90%;
+  }
+}
+@media (max-width: 500px) {
+  .quiz__input{
     width: 90%;
   }
 }

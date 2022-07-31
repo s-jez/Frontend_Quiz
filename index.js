@@ -1,3 +1,5 @@
-import { helloWorld } from "./src/js/app";
+import { newQuestion } from "./src/js/app";
 
-helloWorld();
+window.onload = function () {
+  newQuestion();
+};
