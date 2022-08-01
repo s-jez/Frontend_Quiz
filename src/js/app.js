@@ -1,5 +1,5 @@
 import { questions } from "./questions";
-let quizQuestion = document.querySelector(".quiz__question");
+const quizQuestion = document.querySelector(".quiz__question");
 let quizQuestionID = 0;
 let maxQuizQuestionID = 9;
 let currentQuestion = [];
@@ -13,6 +13,7 @@ console.log("All questions []: ", questions);
 export const newQuestion = () => {
   quizQuestion.innerHTML = "";
   const p = document.createElement("p");
+  const span = document.createElement("span");
   questions.forEach((quiz) => {
     if (quiz.id === quizQuestionID) {
       currentQuestion.push(quiz);
@@ -27,29 +28,42 @@ export const newQuestion = () => {
     answerC.remove();
     return;
   }
+  span.textContent = currentQuestion[quizQuestionID].category;
+  span.style.color = "#777";
   p.textContent = currentQuestion[quizQuestionID].question;
+  p.style.marginBottom = "1rem";
   answerA.placeholder = currentQuestion[quizQuestionID].answerA;
   answerB.placeholder = currentQuestion[quizQuestionID].answerB;
   answerC.placeholder = currentQuestion[quizQuestionID].answerC;
   quizQuestion.appendChild(p);
-  if (buttonClickedAnswer === currentQuestion[quizQuestionID].correctAnswer) {
-    countCorrectAnswers++;
-  }
-  quizQuestionID++;
+  quizQuestion.appendChild(span);
 };
-export const verifyQuestion = () => {
-  console.log(buttonClickedAnswer);
-  newQuestion();
-};
-answerA.addEventListener("focus", () => {
+answerA.addEventListener("click", () => {
   buttonClickedAnswer = answerA.dataset.buttonClicked = "A";
-  verifyQuestion();
+  if (buttonClickedAnswer === currentQuestion[quizQuestionID].correctAnswer) {
+    quizQuestionID++;
+    newQuestion();
+  } else {
+    return;
+  }
 });
-answerB.addEventListener("focus", () => {
+answerB.addEventListener("click", () => {
   buttonClickedAnswer = answerB.dataset.buttonClicked = "B";
-  verifyQuestion();
+  if (buttonClickedAnswer === currentQuestion[quizQuestionID].correctAnswer) {
+    quizQuestionID++;
+    newQuestion();
+  } else {
+    return;
+  }
 });
-answerC.addEventListener("focus", () => {
+answerC.addEventListener("click", () => {
   buttonClickedAnswer = answerC.dataset.buttonClicked = "C";
-  verifyQuestion();
+  console.log(currentQuestion[quizQuestionID].correctAnswer);
+  console.log(buttonClickedAnswer);
+  if (buttonClickedAnswer === currentQuestion[quizQuestionID].correctAnswer) {
+    quizQuestionID++;
+    newQuestion();
+  } else {
+    return;
+  }
 });
