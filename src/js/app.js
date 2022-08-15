@@ -1,13 +1,17 @@
 import { questions } from "./questions";
 const quizQuestion = document.querySelector(".quiz__question");
+const quizInfo = document.querySelector(".quiz__info");
+
+let answerA = document.getElementById("answerA");
+let answerB = document.getElementById("answerB");
+let answerC = document.getElementById("answerC");
+
 let quizQuestionID = 0;
 let maxQuizQuestionID = 9;
 let currentQuestion = [];
 let buttonClickedAnswer = "";
+
 let countCorrectAnswers = 0;
-let answerA = document.getElementById("answerA");
-let answerB = document.getElementById("answerB");
-let answerC = document.getElementById("answerC");
 
 console.log("All questions []: ", questions);
 export const newQuestion = () => {
@@ -22,6 +26,7 @@ export const newQuestion = () => {
   console.log(currentQuestion);
   if (maxQuizQuestionID === quizQuestionID) {
     quizQuestion.textContent = "Thank's for your game!";
+    quizInfo.textContent = "Correct answers: " + countCorrectAnswers + "/9";
     console.log(countCorrectAnswers);
     answerA.remove();
     answerB.remove();
@@ -40,30 +45,78 @@ export const newQuestion = () => {
 };
 answerA.addEventListener("click", () => {
   buttonClickedAnswer = answerA.dataset.buttonClicked = "A";
-  if (buttonClickedAnswer === currentQuestion[quizQuestionID].correctAnswer) {
+  let correctAnswer = currentQuestion[quizQuestionID].correctAnswer;
+  console.log(correctAnswer);
+  if (buttonClickedAnswer === correctAnswer) {
+    quizInfo.textContent = "";
     quizQuestionID++;
+    countCorrectAnswers++;
     newQuestion();
   } else {
+    quizInfo.textContent = "This is a wrong answer!";
+    countCorrectAnswers--;
+    switch (correctAnswer) {
+      case "A":
+        console.log(correctAnswer);
+        break;
+      case "B":
+        console.log(correctAnswer);
+        break;
+      case "C":
+        console.log(correctAnswer);
+        break;
+    }
     return;
   }
 });
 answerB.addEventListener("click", () => {
   buttonClickedAnswer = answerB.dataset.buttonClicked = "B";
-  if (buttonClickedAnswer === currentQuestion[quizQuestionID].correctAnswer) {
+  let correctAnswer = currentQuestion[quizQuestionID].correctAnswer;
+  if (buttonClickedAnswer === correctAnswer) {
+    quizInfo.textContent = "";
     quizQuestionID++;
+    countCorrectAnswers++;
     newQuestion();
   } else {
+    quizInfo.textContent = "This is a wrong answer!";
+    countCorrectAnswers--;
+    switch (correctAnswer) {
+      case "A":
+        console.log(correctAnswer);
+        break;
+      case "B":
+        console.log(correctAnswer);
+        break;
+      case "C":
+        console.log(correctAnswer);
+        break;
+    }
     return;
   }
 });
 answerC.addEventListener("click", () => {
   buttonClickedAnswer = answerC.dataset.buttonClicked = "C";
-  console.log(currentQuestion[quizQuestionID].correctAnswer);
-  console.log(buttonClickedAnswer);
-  if (buttonClickedAnswer === currentQuestion[quizQuestionID].correctAnswer) {
+  let correctAnswer = currentQuestion[quizQuestionID].correctAnswer;
+  if (buttonClickedAnswer === correctAnswer) {
+    quizInfo.textContent = "";
     quizQuestionID++;
+    countCorrectAnswers++;
     newQuestion();
   } else {
+    quizInfo.textContent = "This is a wrong answer!";
+    countCorrectAnswers--;
+    newQuestion();
+    switch (correctAnswer) {
+      case "A":
+        console.log(correctAnswer);
+        break;
+      case "B":
+        console.log(correctAnswer);
+        break;
+      case "C":
+        console.log(correctAnswer);
+        break;
+    }
     return;
   }
 });

@@ -36,7 +36,11 @@
       background: rgb(201, 201, 201, 0.8);
     }
   }
-  .quiz__button {
+  &__info {
+    color: rgb(210, 30, 30);
+    font-size: 1rem;
+  }
+  &__button {
     width: 15rem;
     height: 2rem;
     margin-top: 3rem;
